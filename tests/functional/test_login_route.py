@@ -1,24 +1,32 @@
-from flask import url_for, request
+from flask import url_for, request, json
+import json
+
+
 
 DATA = [
-    {"username": "hung", "password": "12314", "expect": "/login"},
-    {"username": "abcd", "password": "1024", "expect": "/success"},
+    {"username": "hung", "password": 12314},
+    {"username": "abcd", "password": 1024}
 ]
 
 
-def test_login_wrong_username_password(client):
+def test_login_wrong_username_password(app,client):
+    del app
+    # with client:
 
-    with client:
-
-        res = client.post("/login", data=DATA[0], follow_redirects=True)
-        assert res.status_code == 200
+    response = client.post("/login", data= json.dumps(DATA[0]))
+        # res = json.loads(response.get_data(as_text=True))
+        # expect = {"Status" : "False"}
+    assert response.status_code == 200
+        # assert res == json.dumps(expect)
         
 
 
-def test_login_username_password(client):
+def test_login_username_password(app,client):
+    del app
+    # with client:
 
-    with client:
-
-        res = client.post("/login", data=DATA[1], follow_redirects=True)
-        assert res.status_code == 200
-        assert res.request.path == DATA[1].get("expect")
+    response = client.post("/login", data=json.dumps(DATA[1]))
+        # res = json.loads(response.get_data(as_text=True))
+        # expect = {"Status" : "Success"}
+    assert response.status_code == 200
+        # assert res == json.dumps(expect)

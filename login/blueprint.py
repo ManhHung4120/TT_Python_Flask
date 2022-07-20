@@ -7,7 +7,7 @@ login_bp = Blueprint("login_bp", __name__, template_folder="templates/login")
 def check_login():
     body = request.get_json()
     if passdata(body) == True :
-        return make_response(jsonify(Status =  "Đăng nhập thành công"))
+        return jsonify(Status =  "Success")
     else :
-        return make_response(jsonify(Status = "Đăng nhập thất bại"))
+        return jsonify(Status = "False")
     

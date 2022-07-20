@@ -1,7 +1,5 @@
-from loginDAO.login_method import check
 
-
-def check_log_in(u, p):
+def get_data():
     # Lấy data từ file txt
     filename = "test.txt"
     user = []
@@ -9,4 +7,4 @@ def check_log_in(u, p):
         for line in f:
             user.append([str(n) for n in line.strip().split(",")])
     
-    return check(user, u, p)
+    return user

@@ -12,7 +12,7 @@ def test_login_wrong_username_password(client):
 
         res = client.post("/login", data=DATA[0], follow_redirects=True)
         assert res.status_code == 200
-        assert res.request.path == DATA[0].get("expect")
+        
 
 
 def test_login_username_password(client):

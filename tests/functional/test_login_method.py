@@ -3,8 +3,8 @@ import pytest
 
 
 DATA = [
-    (1,  "hung", "1235", None),
-    (2,  "hung", "1234", True),
+    (1, "hung", "1235", None),
+    (2, "hung", "1234", True),
 ]
 
 

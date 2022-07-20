@@ -5,4 +5,4 @@ from loginDAO.login_method import check
 def passdata(body):
     username = body["username"]
     password = body["password"]
-    return check(username,password) 
+    return check(username, password)
